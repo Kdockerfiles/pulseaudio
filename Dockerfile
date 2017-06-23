@@ -37,7 +37,8 @@ RUN curl -Lo/home/pa.tar.xz https://freedesktop.org/software/pulseaudio/releases
         --disable-manpages \
         --disable-x11 \
         --disable-gtk3 \
-        --disable-legacy-database-entry-format && \
+        --disable-legacy-database-entry-format \
+    && \
     make && \
     make -j1 install && \
     rm -rf /home/pulseaudio-10.0 /home/*.patch
