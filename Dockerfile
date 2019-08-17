@@ -1,4 +1,4 @@
-FROM kdockerfiles/pulseaudio-shared:12.2-2
+FROM kdockerfiles/pulseaudio-shared:12.2-3
 LABEL maintainer="KenjiTakahashi <kenji.sx>"
 
 RUN apk add --no-cache \
