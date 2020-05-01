@@ -1,11 +1,11 @@
-FROM kdockerfiles/pulseaudio-shared:12.2-3
+FROM kdockerfiles/pulseaudio-shared:13.0-1
 LABEL maintainer="KenjiTakahashi <kenji.sx>"
 
 RUN apk add --no-cache \
     libltdl \
-    libcap \
     libsndfile \
     speexdsp \
+    tdb-libs \
     alsa-lib
 
 # XXX: Using `29` GID as a workaround for
@@ -20,5 +20,7 @@ USER pulse
 
 VOLUME ["/tmp/pulse", "/usr/local/etc/pulse"]
 
-ENTRYPOINT ["pulseaudio"]
+COPY pulseaudio-entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["pulseaudio-entrypoint.sh"]
 CMD ["--log-target=stderr"]
