@@ -2,6 +2,7 @@ FROM kdockerfiles/pulseaudio-shared:13.0-1
 LABEL maintainer="KenjiTakahashi <kenji.sx>"
 
 RUN apk add --no-cache \
+    libintl \
     libltdl \
     libsndfile \
     speexdsp \
